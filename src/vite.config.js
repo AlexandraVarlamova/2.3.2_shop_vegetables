@@ -5,6 +5,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/2.3.2_shop_vegetables/', 
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
