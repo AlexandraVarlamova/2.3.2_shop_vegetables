@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import { useState, useEffect } from 'react';
 import { SimpleGrid, Title, Container, Loader, Center } from '@mantine/core'; 
 import { ProductCard } from "../ProductCard/ProductCard";
 

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { 
   Popover, 
   Button, 
@@ -10,7 +10,7 @@ import {
   Divider, 
   Box 
 } from '@mantine/core';
-import { IconShoppingCart, IconPlus, IconMinus, IconTrash } from '@tabler/icons-react';
+import { IconShoppingCart, IconPlus, IconMinus } from '@tabler/icons-react';
 import type { Product } from '../Catalog/Catalog';
 
 interface CartPopupProps {
