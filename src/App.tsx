@@ -1,19 +1,11 @@
-import { useState } from 'react';
 import {
-  AppShell,
-  Title,
-  Group,
-  Burger,
-  Text,
-  Badge,
-  AppShellHeader,
-  AppShellNavbar,
-  AppShellSection,
-  AppShellMain,
-  AppShellFooter
+  AppShell, Title, Group, Burger, Text, Badge, AppShellHeader,
+  AppShellNavbar, AppShellSection, AppShellMain, AppShellFooter
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-
+import { useSelector, useDispatch } from 'react-redux';
+import type { RootState } from './store/store';
+import { addToCart as addToCartAction, removeFromCart as removeFromCartAction } from './store/slices/cartSlice';
 
 import { Catalog } from './components/Catalog/Catalog';
 import type { Product } from './components/Catalog/Catalog';
@@ -21,29 +13,21 @@ import { CartPopup } from './components/CartPopup/CartPopup';
 
 function App() {
   const [opened, { toggle }] = useDisclosure();
-  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const dispatch = useDispatch();
 
+
+  const cartItems = useSelector((state: RootState) => state.cart?.items || []); 
+  
+ 
+  const totalPrice = cartItems.reduce((acc, item) => acc + (item.price * (item.quantity || 1)), 0);
 
   const addToCart = (item: Product, quantity: number) => {
-    const newItems = Array(quantity).fill(item);
-    setCartItems((prevItems) => [...prevItems, ...newItems]);
+    dispatch(addToCartAction({ item, quantity })); 
   };
 
-  
   const removeFromCart = (itemId: number) => {
-    setCartItems((prevItems) => {
-      const index = prevItems.findIndex((item) => item.id === itemId);
-      
-      if (index !== -1) {
-        const newArr = [...prevItems];
-        newArr.splice(index, 1);
-        return newArr;
-      }
-      return prevItems;
-    });
+    dispatch(removeFromCartAction(itemId)); 
   };
-
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.price, 0);
 
   return (
     <AppShell
@@ -67,9 +51,9 @@ function App() {
                 Total: {totalPrice} ₽
               </Text>
             )}
-            
-            <CartPopup 
-              cartItems={cartItems} 
+
+            <CartPopup
+              cartItems={cartItems}
               onAdd={addToCart} 
               onRemove={removeFromCart} 
             />
@@ -78,7 +62,7 @@ function App() {
       </AppShellHeader>
 
       <AppShellNavbar p="md">
-         <AppShellSection grow>
+        <AppShellSection grow>
           <Text fw={500} mb="sm">Меню</Text>
           <Text>Овощи и фрукты</Text>
           <Text>Корзина</Text>
@@ -88,8 +72,8 @@ function App() {
       <AppShellMain>
         <Title order={2}>Добро пожаловать!</Title>
         <Text mb="lg">Магазин овощей и фруктов</Text>
-        
-        <Catalog onAddToCart={addToCart} />
+
+        <Catalog /> 
       </AppShellMain>
 
       <AppShellFooter p="md">
