@@ -1,43 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import type { Product } from '../../components/Catalog/Catalog';
 
-
-// import almondPng from '../../assets/almond.png';
-// import applePng from '../../assets/apple.png';
-// import bananaPng from '../../assets/banana.png';
-// import beansPng from '../../assets/beans.png';
-// import brinjalPng from '../../assets/brinjal.png';
-// import brocolliPng from '../../assets/brocolli.png';
-// import carrotPng from '../../assets/carrot.png';
-// import cashewPng from '../../assets/cashew.png';
-// import cauliflowerPng from '../../assets/cauliflower.png';
-// import cornPng from '../../assets/corn.png';
-// import cucumberPng from '../../assets/cucumber.png';
-// import grapePng from '../../assets/grape.png';
-// import grenadesPng from '../../assets/grenades.png';
-// import mangoPng from '../../assets/mango.png';
-// import melonPng from '../../assets/melon.png';
-// import mushroomPng from '../../assets/mushroom.png';
-// import nutsmixPng from '../../assets/nutsmix.png';
-// import onionPng from '../../assets/onion.png';
-// import orangePng from '../../assets/orange.png';
-// import pearPng from '../../assets/pear.png';
-// import pepperPng from '../../assets/pepper.png';
-// import pistachiosPng from '../../assets/pistachios.png';
-// import potatoPng from '../../assets/potato.png';
-// import pumpkinPng from '../../assets/pumpkin.png';
-// import radishPng from '../../assets/radish.png';
-// import raspberryPng from '../../assets/raspberry.png';
-// import strawberryPng from '../../assets/strawberry.png';
-// import tomatoPng from '../../assets/tomato.png';
-// import walnutsPng from '../../assets/walnuts.png';
-// import watermalonPng from '../../assets/watermalon.png';
-
-
 const productsData: Product[] = [
   { id: 1, title: 'Broccoli', weight: '1 kg', price: 120, image: '/assets/brocolli.png' },
   { id: 2, title: 'Cauliflower', weight: '1 kg', price: 120, image: '/assets/cauliflower.png'},
-  // { id: 3, title: 'Cucumber', weight: '1 kg', price: 120, image: cucumberPng },
  { id: 3, title: 'Cucumber', weight: '1 kg', price: 120, image: '/assets/cucumber.png' },
   { id: 4, title: 'Radish', weight: '1 kg', price: 120, image: '/assets/radish.png' },
   { id: 5, title: 'Carrot', weight: '1 kg', price: 82, image:  '/assets/carrot.png'  },
@@ -58,14 +24,14 @@ const productsData: Product[] = [
   { id: 20, title: 'Melon', weight: '1 kg', price: 82, image:  '/assets/melon.png'},
   { id: 21, title: 'Pear', weight: '1 kg', price: 82, image:  '/assets/mapearngo.png'},
   { id: 22, title: 'Grenades', weight: '1 kg', price: 82, image:  '/assets/grenades.png'},
-  // { id: 23, title: 'Raspberry', weight: '1 kg', price: 82, image: raspberryPng },
-  // { id: 24, title: 'Strawberry', weight: '1 kg', price: 82, image: strawberryPng },
-  // { id: 25, title: 'Watermallon', weight: '1 kg', price: 82, image: watermalonPng },
-  // { id: 26, title: 'Almond', weight: '1 kg', price: 82, image: almondPng },
-  // { id: 27, title: 'Pistachios', weight: '1 kg', price: 82, image: pistachiosPng },
-  // { id: 28, title: 'Nutsmix', weight: '1 kg', price: 82, image: nutsmixPng },
-  // { id: 29, title: 'Cashew', weight: '1 kg', price: 82, image: cashewPng },
-  // { id: 30, title: 'Walnuts', weight: '1 kg', price: 82, image: walnutsPng },
+  { id: 23, title: 'Raspberry', weight: '1 kg', price: 82, image:  '/assets/raspberry.png'},
+  { id: 24, title: 'Strawberry', weight: '1 kg', price: 82, image:  '/assets/strawberry.png' },
+  { id: 25, title: 'Watermallon', weight: '1 kg', price: 82, image:  '/assets/strawberry.png'},
+  { id: 26, title: 'Almond', weight: '1 kg', price: 82, image: almondPng '/assets/strawberry.png' },
+  { id: 27, title: 'Pistachios', weight: '1 kg', price: 82, image:  '/assets/pistachios.png' },
+  { id: 28, title: 'Nutsmix', weight: '1 kg', price: 82, image:  '/assets/nutsmix.png'},
+  { id: 29, title: 'Cashew', weight: '1 kg', price: 82, image:  '/assets/cashew.png'},
+  { id: 30, title: 'Walnuts', weight: '1 kg', price: 82, image:  '/assets/walnuts.png'},
 ];
 
 interface ProductsState {
